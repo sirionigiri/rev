@@ -6,7 +6,7 @@ const imagePaths = [
   "assets/crying.png",
   "assets/apology.png",
   "assets/smirk.png",
-  "assets/bg.jpeg"
+  "assets/bg.webp"
 ];
 
 const audioPaths = [
@@ -145,26 +145,13 @@ function attack(type) {
   }, attackAnimationDuration);
 }
 
-const game = document.getElementById("game");
+document.addEventListener("click", () => attack("punch"));
+document.addEventListener("touchstart", () => attack("punch"));
 
-function handlePunch(e) {
-  e.preventDefault();
-  if (!assetsReady) return;
-  attack("punch");
-}
-
-function handleKick(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  if (!assetsReady) return;
+kickBtn.addEventListener("click", (e) => {
+  e.stopPropagation();   // prevent triggering punch
   attack("kick");
-}
-
-game.addEventListener("touchstart", handlePunch, { passive: false });
-game.addEventListener("mousedown", handlePunch);
-
-kickBtn.addEventListener("touchstart", handleKick, { passive: false });
-kickBtn.addEventListener("mousedown", handleKick);
+});
 
 document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("dblclick", e => e.preventDefault());
