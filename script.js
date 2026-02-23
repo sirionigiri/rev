@@ -6,7 +6,7 @@ const imagePaths = [
   "assets/crying.png",
   "assets/apology.png",
   "assets/smirk.png",
-  "assets/bg.webp"
+  "assets/bg.jpeg"
 ];
 
 const audioPaths = [
