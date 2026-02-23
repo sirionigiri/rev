@@ -15,24 +15,6 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
-.trash-talk{
-    position: absolute;
-    text-align: center;
-    left: calc(50% - 200px);
-    color: rgb(241, 232, 110);
-
-}
-.trash-talk h1{
-    text-decoration: none;
-    font-weight: 400;
-    margin: 1rem 0 0 0;
-}
-
-.trash-talk h2{
-    text-decoration: none;
-    font-weight: 400;
-    margin: 0 0 0 0;
-}
 
 #kickBtn {
   margin-top: 10px;
@@ -51,7 +33,6 @@ body {
 /* Background full screen */
 /* Background full screen */
 #bg {
-
   position: fixed;
   inset: 0;
   background-image: url("assets/bg.jpeg");
@@ -64,7 +45,7 @@ body {
   align-items: center;
   width: 1000px;
   height: 500px;
-  pointer-events: none;
+  pointer-events:none;
 }
 
 /* Game container default = desktop */
@@ -177,9 +158,8 @@ body {
     75% { transform: translateX(-4px); }
     100% { transform: translateX(0px); }
   }
-
-  body {
-    overscroll-behavior: none;
+  .trash-talk{
+    scale: 0.7;
   }
 
 }
