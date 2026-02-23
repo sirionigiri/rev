@@ -1,0 +1,200 @@
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  touch-action: manipulation;
+}
+
+.trash-talk{
+    position: absolute;
+    text-align: center;
+    left: calc(50% - 200px);
+    color: rgb(241, 232, 110);
+
+}
+.trash-talk h1{
+    text-decoration: none;
+    font-weight: 400;
+    margin: 1rem 0 0 0;
+}
+
+.trash-talk h2{
+    text-decoration: none;
+    font-weight: 400;
+    margin: 0 0 0 0;
+}
+
+#kickBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: black;
+  color: white;
+}
+
+#kickBtn:active {
+  transform: scale(0.95);
+}
+
+/* Background full screen */
+/* Background full screen */
+#bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  height: 500px;
+}
+
+/* Game container default = desktop */
+#game {
+  position: relative;
+  width: 1000px;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.678);
+  overflow: hidden;
+  border-radius: 16px;
+}
+/* Flash stays inside game box */
+#flash {
+  position: absolute;
+  inset: 0;
+  background: rgba(220, 205, 205, 0.084);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* UI anchored inside game */
+#ui {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-family: Arial, sans-serif;
+  z-index: 10;
+}
+
+.players {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#player {
+  height: 60%;
+  max-height: 360px;
+  transition: transform 0.12s ease;
+  object-fit: contain;
+  z-index: 100;
+}
+
+#bag {
+  height: 75%;
+  max-height: 420px;
+  object-fit: contain;
+  z-index: 99;
+}
+
+/* Shake animation */
+.shake {
+  animation: shake 0.2s linear;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0px); }
+}
+
+/* Flash */
+.flashActive {
+  animation: flashAnim 0.15s ease;
+}
+
+@keyframes flashAnim {
+  from { opacity: 0.6; }
+  to { opacity: 0; }
+}
+
+
+@media (max-width: 768px) {
+
+  #bg{
+    width: 100vw;
+    height: 70dvh;
+  }
+
+  #game {
+    width: 100vw;
+    height: 70dvh;
+    border-radius: 0;
+  }
+
+  #ui {
+    top: 60px;
+    left: 20px;
+    font-size: 18px;
+  }
+
+  #kickBtn {
+    font-size: 18px;
+    padding: 12px 20px;
+    margin-top: 16px;
+  }
+
+
+  #player {
+    height: 55%;
+    margin-right: -64px;
+  }
+
+  #bag {
+    height: 60%;
+  }
+
+  /* Reduce shake intensity for small screens */
+  @keyframes shake {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0px); }
+  }
+  .trash-talk{
+    scale: 0.7;
+  }
+
+  body {
+    overscroll-behavior: none;
+  }
+
+  #game {
+    touch-action: manipulation;
+  }
+}

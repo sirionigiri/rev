@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Punch Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+    <div id="bg"></div>
+
+  <div id="game">
+    <div id="flash"></div>
+
+    <div id="ui">
+      <div id="hitCounter">Hits: 0</div>
+      <div id="comboCounter">Combo: 0</div>
+      <div id="healthBarContainer">
+        <div id="healthBar"></div>
+      </div>
+      <button id="kickBtn">Kick</button>
+    </div>
+
+    <div class="players">
+    <img id="player" src="assets/rest.png" />
+    <img id="bag" src="assets/smirk.png" />
+    </div>
+  </div>
+  
+
+  <audio id="smackSound" src="assets/punch.m4a"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
