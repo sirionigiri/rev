@@ -145,14 +145,15 @@ function attack(type) {
   }, attackAnimationDuration);
 }
 
-document.addEventListener("pointerdown", (e) => {
+game.addEventListener("touchstart", (e) => {
+  e.preventDefault();
   if (!assetsReady) return;
   attack("punch");
-});
+}, { passive: false });
 
-kickBtn.addEventListener("pointerdown", (e) => {
-  e.stopPropagation();   // prevent triggering punch
-  attack("kick");
+game.addEventListener("mousedown", (e) => {
+  if (!assetsReady) return;
+  attack("punch");
 });
 
 document.addEventListener("contextmenu", e => e.preventDefault());
