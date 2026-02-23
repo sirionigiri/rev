@@ -145,10 +145,12 @@ function attack(type) {
   }, attackAnimationDuration);
 }
 
-document.addEventListener("click", () => attack("punch"));
-document.addEventListener("touchstart", () => attack("punch"));
+document.addEventListener("pointerdown", (e) => {
+  if (!assetsReady) return;
+  attack("punch");
+});
 
-kickBtn.addEventListener("click", (e) => {
+kickBtn.addEventListener("pointerdown", (e) => {
   e.stopPropagation();   // prevent triggering punch
   attack("kick");
 });
