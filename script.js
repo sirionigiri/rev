@@ -147,18 +147,24 @@ function attack(type) {
 
 const game = document.getElementById("game");
 
-game.addEventListener("pointerdown", (e) => {
+function handlePunch(e) {
   e.preventDefault();
   if (!assetsReady) return;
   attack("punch");
-}, { passive: false });
+}
 
-kickBtn.addEventListener("pointerdown", (e) => {
-  e.stopPropagation();
+function handleKick(e) {
   e.preventDefault();
+  e.stopPropagation();
   if (!assetsReady) return;
   attack("kick");
-}, { passive: false });
+}
+
+game.addEventListener("touchstart", handlePunch, { passive: false });
+game.addEventListener("mousedown", handlePunch);
+
+kickBtn.addEventListener("touchstart", handleKick, { passive: false });
+kickBtn.addEventListener("mousedown", handleKick);
 
 document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("dblclick", e => e.preventDefault());
