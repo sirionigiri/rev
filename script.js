@@ -1,3 +1,63 @@
+const imagePaths = [
+  "assets/rest.png",
+  "assets/punch.png",
+  "assets/kick.png",
+  "assets/pain.png",
+  "assets/crying.png",
+  "assets/apology.png",
+  "assets/smirk.png",
+  "assets/bg.webp"
+];
+
+const audioPaths = [
+  "assets/punch.m4a"
+];
+
+function preloadImages(paths) {
+  return Promise.all(
+    paths.map(src => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          img.decode().then(resolve).catch(resolve);
+        };
+        img.onerror = reject;
+      });
+    })
+  );
+}
+
+function preloadAudio(paths) {
+  return Promise.all(
+    paths.map(src => {
+      return new Promise((resolve, reject) => {
+        const audio = new Audio();
+        audio.src = src;
+        audio.onloadeddata = resolve;
+        audio.onerror = reject;
+      });
+    })
+  );
+}
+
+let assetsReady = false;
+
+Promise.all([
+  preloadImages(imagePaths),
+  preloadAudio(audioPaths)
+])
+.then(() => {
+  assetsReady = true;
+  document.getElementById("loading")?.remove();
+})
+.catch(err => {
+  console.error("Preload failed:", err);
+});
+
+
+
+
 const player = document.getElementById("player");
 const bag = document.getElementById("bag");
 const counterText = document.getElementById("hitCounter");
