@@ -13,7 +13,6 @@ body {
   margin: 0;
   overflow: hidden;
   background-color: rgb(0, 0, 0);
-  touch-action: manipulation;
 }
 
 .trash-talk{
@@ -52,6 +51,7 @@ body {
 /* Background full screen */
 /* Background full screen */
 #bg {
+
   position: fixed;
   inset: 0;
   background-image: url("assets/bg.jpeg");
@@ -64,6 +64,7 @@ body {
   align-items: center;
   width: 1000px;
   height: 500px;
+  pointer-events: none;
 }
 
 /* Game container default = desktop */
@@ -181,7 +182,4 @@ body {
     overscroll-behavior: none;
   }
 
-  #game {
-    touch-action: none;
-  }
 }
