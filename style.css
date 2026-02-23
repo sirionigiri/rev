@@ -73,18 +73,8 @@ body {
   height: 500px;
   background: rgba(0, 0, 0, 0.678);
   overflow: hidden;
-  border-radius: 16px;
 }
 /* Flash stays inside game box */
-#flash {
-  position: absolute;
-  inset: 0;
-  background: rgba(220, 205, 205, 0.084);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 5;
-}
-
 /* UI anchored inside game */
 #ui {
   position: absolute;
