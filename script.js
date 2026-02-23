@@ -145,8 +145,20 @@ function attack(type) {
   }, attackAnimationDuration);
 }
 
-document.addEventListener("click", () => attack("punch"));
-document.addEventListener("touchstart", () => attack("punch"));
+let touchUsed = false;
+
+document.addEventListener("touchstart", (e) => {
+  touchUsed = true;
+  attack("punch");
+}, { passive: true });
+
+document.addEventListener("click", (e) => {
+  if (touchUsed) {
+    touchUsed = false;
+    return;
+  }
+  attack("punch");
+});
 
 kickBtn.addEventListener("click", (e) => {
   e.stopPropagation();   // prevent triggering punch
