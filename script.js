@@ -145,16 +145,20 @@ function attack(type) {
   }, attackAnimationDuration);
 }
 
-game.addEventListener("touchstart", (e) => {
+const game = document.getElementById("game");
+
+game.addEventListener("pointerdown", (e) => {
   e.preventDefault();
   if (!assetsReady) return;
   attack("punch");
 }, { passive: false });
 
-game.addEventListener("mousedown", (e) => {
+kickBtn.addEventListener("pointerdown", (e) => {
+  e.stopPropagation();
+  e.preventDefault();
   if (!assetsReady) return;
-  attack("punch");
-});
+  attack("kick");
+}, { passive: false });
 
 document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("dblclick", e => e.preventDefault());
