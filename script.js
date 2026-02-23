@@ -160,8 +160,18 @@ document.addEventListener("click", (e) => {
   attack("punch");
 });
 
+kickBtn.addEventListener("touchstart", (e) => {
+  e.stopPropagation();
+  touchUsed = true;
+  attack("kick");
+}, { passive: true });
+
 kickBtn.addEventListener("click", (e) => {
-  e.stopPropagation();   // prevent triggering punch
+  e.stopPropagation();
+  if (touchUsed) {
+    touchUsed = false;
+    return;
+  }
   attack("kick");
 });
 
