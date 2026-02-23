@@ -160,12 +160,12 @@ body {
 
 
   #player {
-    height: 55%;
+    height: 300px;
     margin-right: -64px;
   }
 
   #bag {
-    height: 60%;
+    height: 360px;
   }
 
   /* Reduce shake intensity for small screens */
@@ -176,12 +176,11 @@ body {
     75% { transform: translateX(-4px); }
     100% { transform: translateX(0px); }
   }
-  .trash-talk{
-    scale: 0.7;
-  }
 
   body {
     overscroll-behavior: none;
+    touch-action: manipulation;
+
   }
 
   #game {
